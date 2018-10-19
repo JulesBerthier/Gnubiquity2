@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Gnubiquity 2.0</title>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-light sidenav-toggled" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">Gnubiquity 2.0</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Panneau de configuration">
+          <a class="nav-link" href="index.html">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Panneau de configuration</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label id="pepper" class="btn btn-secondary active">
+              <input type="radio" checked> Pepper
+            </label>
+            <label id="nao" class="btn btn-secondary">
+              <input type="radio"> Nao
+            </label>
+            <label id="robotino" class="btn btn-secondary">
+              <input type="radio"> Robotino
+            </label>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-bell"></i>
+            <span class="d-lg-none">Status
+              <span class="badge badge-pill badge-warning">6 New</span>
+            </span>
+            <span class="indicator text-success d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">Evénements du système :</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">Afficher tous les événements</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input id="message" class="form-control" type="text" placeholder="Parler ...">
+              <span class="input-group-append">
+                <button id="parler" class="btn btn-primary" type="button">
+                  <i class="fa fa-commenting"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-in"></i>Connexion</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Example Bar Chart Card-->
+          <div class="card mb-3" style="min-height:500px">
+            <div class="card-header">
+              <i class="fa fa-bar-chart"></i> Camera</div>
+            <div class="card-body">
+              <!--<img src="http://192.168.118.28:8080/stream/video.mjpeg" alt="image">-->
+              <img src="back.png" alt="image" style="width: 850px;height: 490px;">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-pie-chart"></i> Contrôle de la caméra</div>
+            <div class="card-body" style="height:200px">
+              <div class="nipple collection_0" id="nipple_0_0"></div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-pie-chart"></i> Contrôle du robot</div>
+            <div class="card-body">
+              <div class="jumbotron mt-3" id="deplacement">
+                  <button class="btn btn-lg btn-primary" role="button" id="gauche"><i class="fa fa-arrow-left"></i></button>
+                  <button class="btn btn-lg btn-primary" role="button" id="avancer"><i class="fa fa-arrow-up"></i></button>
+                  <button class="btn btn-lg btn-primary" role="button" id="droite"><i class="fa fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <nav class="navbar center fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item"><a id="tetecentre" class="nav-link" href="#">Remettre la tête au centre</a></li>
+            <li class="nav-item"><a id="tournergauche" class="nav-link" href="#">Tourner à gauche</a></li>
+            <li class="nav-item"><a id="tournerdroite" class="nav-link" href="#">Tourner à droite</a></li>
+            <li class="nav-item"><a id="attention" class="nav-link" href="#">Attirer l'attention</a></li>
+
+            <li class="nav-item dropup">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Position du robot
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#" id="Sit">Sit</a>
+                <a class="dropdown-item" href="#" id="Stand">Stand</a>
+                <a class="dropdown-item" href="#" id="Crouch">Crouch</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin.js"></script>
+    <script src="js/app.js"></script>
+    <script src="dist/nipplejs.js"></script>
+    <script src ="dist/nipplejs.min.js"></script>
+  </div>
+</body>
+
+<style>
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+
+.navbar.center .navbar-inner .nav {
+    display:inline-block;
+    float: none;
+}
+</style>
+
+</html>
